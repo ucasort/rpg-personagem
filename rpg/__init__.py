@@ -1,5 +1,4 @@
-# Deixa o pacote importável e expõe os principais tipos
-from .atributos import Atributos, EstiloDistribuicao
-from .racas import Humano, Anao, Elfo
-from .classes import Guerreiro, Mago, Ladino
+from .atributos import Atributos, EstiloDistribuicao, CHAVES
+from .racas import Raca, Humano, Anao, Elfo
+from .classes import Classe, Guerreiro, Mago, Ladino
 from .personagem import Personagem

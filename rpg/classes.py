@@ -1,7 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import List
-from .atributos import Atributos
 
 @dataclass
 class Classe:
@@ -12,9 +11,10 @@ class Classe:
     atributos_chave: List[str]
     caracteristicas: List[str] = field(default_factory=list)
 
-    def pv_nivel1(self, atr: Atributos) -> int:
-        """PV no 1º nível: dado de vida + mod CON."""
-        return self.dado_vida + atr.modificador("CON")
+    def pv_nivel1(self, atr: "Atributos") -> int:
+        """PV do 1º nível: dado de vida + modificador de CON (mínimo 1)."""
+        pv = self.dado_vida + atr.modificador("CON")
+        return max(1, pv)
 
 class Guerreiro(Classe):
     def __init__(self):
